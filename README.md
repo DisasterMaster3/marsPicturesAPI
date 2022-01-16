@@ -1,5 +1,5 @@
 # marsPictures
 
-Project to give you access to pictures of mars
+Project to give you access to pictures from mars
 
 work-in-progress
