@@ -24,7 +24,7 @@ app.post("/", function(req, res){
         console.log(data);
         if (err || data.photos.length == 0) {
             console.log(`Error occurred: ${err}`);
-            res.render('index', {satData: false, error: `Invalid entry or no picture was taken on ${sol}`})
+            res.render('index', {satData: false, error: `Invalid entry or no picture was taken on day "${sol}"`})
         }
         else {
             let day = sol;
@@ -33,7 +33,6 @@ app.post("/", function(req, res){
             let image1 = pictures[0].img_src;
             console.log(pictures[0].sol);
             console.log(pictures[0].earth_date);
-            console.log(image1);
 
             res.render("index", {
                 sols: day,
