@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Mars Rover Photograph Searcher</title>
-</head>
-<body class="main">
-    <div class="banner">
-        <h1>MARS PHOTOGRAPH SEARCHER</h1>
-    </div>
-    <form action="/" method = "post">
-        <input name="sol" type="text" class="ghost-input" placeholder="Enter a Sol" required>
-        <input type="submit" class="ghost-button" value="Go for it">
-    </form>
-    <div>
-        <%if(satData) {%>
-            <div>
-                <h2>First picture taken on Mars!</h2>
-                <h3>on day <%=sols%></h3>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Mars Rover Photograph Searcher</title>
+    </head>
+    <body>
+        <h1 class="banner">MARS PHOTOGRAPH SEARCHER</h1>
+        <form action="/" method = "post" class="search">
+            <input name="sol" type="text" placeholder="Enter a Sol" required>
+            <input type="submit" value="Go for it">
+        </form>
+        <div>
+            <%if(satData) {%>
                 <div>
-                    <img src="<%=pictures[0].img_src%>" alt="Picture from mars" width="50%"height="33%">
+                    <h2 class="search">First picture taken on Mars!</h2>
+                    <h3 class="search">on day <%=sols%></h3>
+                    <div>
+                        <img src="<%=pictures[0].img_src%>" alt="Picture from mars" class="picture">
+                    </div>
                 </div>
-            </div>
+                <% } %>
+            <% if(error !== null){ %>
+            <p>
+            <%= error %>
+            </p>
             <% } %>
-        <% if(error !== null){ %>
-        <p>
-          <%= error %>
-        </p>
-        <% } %>
-    </div>
-</body>
+        </div>
+    </body>
 </html>
